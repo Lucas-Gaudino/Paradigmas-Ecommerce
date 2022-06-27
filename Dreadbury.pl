@@ -65,5 +65,5 @@ asesino(Asesino,Alguien):-
 %false. 
 
 
-%odia(carnicero,_).
+%odia(mayordomo,_).
 %true
