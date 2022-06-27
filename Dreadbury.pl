@@ -1,3 +1,4 @@
+ 
 persona(tiaAgatha).
 persona(mayordomo).
 persona(charles).
@@ -9,34 +10,33 @@ viveEnMansion(charles).
 
 
 odia(tiaAgatha, Alguien):-
-    vivieEnDreadbury(Alguien),
-    not(Alguien = mayordomo),
+    viveEnMansion(Alguien),
+    not(Alguien = mayordomo).
   
 
 
 odia(charles, Alguien):-
-    vivieEnDreadbury(Alguien),
-    not(odia(tiaAgatha, Alguien)),
+    viveEnMansion(Alguien),
+    not(odia(tiaAgatha, Alguien)).
 
 
 odia(mayordomo, Alguien):-
     odia(tiaAgatha, Alguien).
 
 masRico(Alguien,agatha):-
-    viveEnLaMansion(Alguien),
+    viveEnMansion(Alguien),
     not(odia(mayordomo,Alguien)).
 
 asesino(Asesino,Alguien):-
     odia(Asesino,Alguien),
-    viveEnLaMansion(Asesino),
+    viveEnMansion(Asesino),
     not(masRico(Asesino,Alguien)).
 
-
-%?- asesino(Asesino,agatha).
-% Asesino = agatha 
+% asesino(Asesino,tiaAgatha).
+% Asesino = tiaAgatha 
  
 %?- odia(Alguien,milhouse).
-%Alguien = agatha ;
+%Alguien = tiaAgatha ;
 %Alguien = mayordomo ;
 
 
@@ -44,18 +44,18 @@ asesino(Asesino,Alguien):-
 %odia(charles,Alguien).
 %Alguien = mayordomo ;
 
-%?- odia(Alguien,agatha).
-%Alguien = agatha ;
+%?- odia(Alguien,tiaAgatha).
+%Alguien = tiaAgatha ;
 %Alguien = mayordomo ;
 
 %- odia(Odiador,Odiado).
-%Odiador = Odiado, Odiado = agatha ;
-%Odiador = agatha,
+%Odiador = Odiado, Odiado = tiaAgatha ;
+%Odiador = tiaAgatha,
 %Odiado = charles ;
-%Odiador = agatha,
+%Odiador = tiaAgatha,
 %Odiado = milhouse ;
 %Odiador = mayordomo,
-%Odiado = agatha ;
+%Odiado = tiaAgatha ;
 %Odiador = mayordomo,
 %Odiado = charles ;
 %Odiador = mayordomo,
